@@ -11,8 +11,8 @@ public class Dummy : MonoBehaviour
 	#endregion
 
 	#region GroundCheck Variables
-
-        [Header ("GroundCheck")] [Space(10)]  
+	
+		[Header ("GroundCheck")] [Space(10)]  
 		[SerializeField] private bool isGrounded;
 		[SerializeField] private LayerMask groundMask;
 		[SerializeField] private Transform groundCheck;
@@ -24,6 +24,8 @@ public class Dummy : MonoBehaviour
 	public float jumpHeight = 3f;
 	public float walkSpeed = 3f;
 	public float sprintSpeed = 5f;
+	private float _currentVelY;
+	private readonly float transitionTime = 0.12f;
 
     void Start() => Init();
 
@@ -89,6 +91,11 @@ public class Dummy : MonoBehaviour
 		var inputZ = Input.GetAxis("Vertical");
 		var moveSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
 		var direction = new Vector3(inputX, 0, inputZ);
+
+		// for Direction Rotation
+		var targetAngle = Mathf.Atan2(y: direction.x, x: direction.z) * Mathf.Rad2Deg;
+		var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelY, transitionTime);
+		transform.rotation = Quaternion.Euler(x: 0, y: angle, z: 0);
 
 		// Add Character motion on XZ Axis
 		m_Controller.Move(motion: moveSpeed * Time.deltaTime * direction);
