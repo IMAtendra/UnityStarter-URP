@@ -18,10 +18,12 @@ public class Dummy : MonoBehaviour
 		[SerializeField] private Transform groundCheck;
 		private readonly float groundDistance = 0.4f;
 		private readonly float gravity = 9.8f;
-	#endregion
+	#endregion 
 
     private Vector3 velocity;
 	public float jumpHeight = 3f;
+	public float walkSpeed = 3f;
+	public float sprintSpeed = 5f;
 
     void Start() => Init();
 
@@ -41,12 +43,14 @@ public class Dummy : MonoBehaviour
 	{
 		OnGroundCheck();
 		JumpInput();
+		Movement();
 	}
 
 	void OnGroundCheck()
 	{
+		// Show Distance from Ground
         Debug.DrawLine(start: transform.position,
-                       end: Vector3.down * groundDistance,
+                       end: transform.position + Vector3.down * groundDistance,
                        color: Color.black);
 
 		// Checking if a Character is on the Ground
@@ -61,7 +65,7 @@ public class Dummy : MonoBehaviour
         // Add DownForce when Character is not under Ground Distance
         velocity.y -= gravity * Time.deltaTime;
         
-        // Add Character motion in Y Axis
+        // Add Character motion on Y Axis
 		m_Controller.Move(motion: velocity * Time.deltaTime);
 
         // Animation For isGrounded
@@ -77,4 +81,21 @@ public class Dummy : MonoBehaviour
 			if (isGrounded) velocity.y = Mathf.Sqrt(f: jumpHeight * gravity);
 		}
 	}
+
+	public void Movement()
+	{
+		// Inputs for Movement
+		var inputX = Input.GetAxis("Horizontal");
+		var inputZ = Input.GetAxis("Vertical");
+		var moveSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
+		var direction = new Vector3(inputX, 0, inputZ);
+
+		// Add Character motion on XZ Axis
+		m_Controller.Move(motion: moveSpeed * Time.deltaTime * direction);
+
+        // Add Animations For Movement
+		m_Animator.SetFloat(name: "InputX", value: inputX);
+		m_Animator.SetFloat(name: "InputZ", value: inputZ);
+	}
+
 }
