@@ -1,5 +1,6 @@
 {
   "dependencies": {
+<<<<<<< Updated upstream
     "com.unity.burst": {
       "version": "1.8.13",
       "depth": 1,
@@ -128,6 +129,8 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+=======
+>>>>>>> Stashed changes
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
