@@ -105,4 +105,13 @@ public class Dummy : MonoBehaviour
 		m_Animator.SetFloat(name: "InputZ", value: inputZ);
 	}
 
+	void OnTriggerEnter(Collider other)
+	{
+		ICollectible collectible = other.GetComponent<ICollectible>();
+		if (other.gameObject.tag.Equals("Coin") || collectible != null)
+		{
+			collectible.Collect();
+		}
+	}
+
 }
