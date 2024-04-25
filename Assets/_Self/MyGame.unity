@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 490327334}
   - component: {fileID: 490327333}
   - component: {fileID: 490327336}
+  - component: {fileID: 490327337}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -476,6 +477,18 @@ MonoBehaviour:
   score: 0
   CoinText: {fileID: 461243044}
   GemText: {fileID: 962809699}
+--- !u!114 &490327337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490327332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c2dc69252f6c445b8fe56fbdec3a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &501506620
 GameObject:
   m_ObjectHideFlags: 0
