@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-//<summary>
+﻿//<summary>
 //Subclass for selecting oldest cell from container
 //</summary>
 public class OldestTreeMazeGenerator : TreeMazeGenerator {

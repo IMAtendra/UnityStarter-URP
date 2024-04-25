@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-//<summary>
+﻿//<summary>
 //Subclass for selecting last cell from container.
 //Result equal to Recursive algorithm, so TreeMazeGenerator becomes non-recursive realisation of RecursiveGenerator = )
 //</summary>
