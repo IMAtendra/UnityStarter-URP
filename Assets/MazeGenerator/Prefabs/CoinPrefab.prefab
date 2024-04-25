@@ -142,5 +142,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IncrementValue: 1
   ItemType: 0
-  target: {fileID: 0}
-  move: 0
+  effect: {fileID: 100000, guid: de815e9dc2d95a948939d83cfaa32a3d, type: 3}
