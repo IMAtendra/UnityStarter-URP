@@ -142,3 +142,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IncrementValue: 1
   ItemType: 0
+  target: {fileID: 0}
+  move: 0

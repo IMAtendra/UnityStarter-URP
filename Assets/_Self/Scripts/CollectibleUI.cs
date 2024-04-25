@@ -26,14 +26,14 @@ public class CollectibleUI : MonoBehaviour
         {
             score += valueForIncrement;
             CoinText.text = score.ToString();
-            Debug.Log(item + " : " + score);
+            // Debug.Log(item + " : " + score);
         }
         
         if (item == CollectibleType.Gem)
         {
             score += valueForIncrement;
             GemText.text = score.ToString();
-            Debug.Log(item + " : " + score);
+            // Debug.Log(item + " : " + score);
         }
     }
 }
